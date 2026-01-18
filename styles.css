@@ -121,33 +121,21 @@ nav ul {
   background-color: var(--underline-color);
 }
 
-/* Flicker/strobe hover animation */
-.nav-link:hover::after {
-  animation: flicker 0.15s ease-in-out infinite alternate;
+/* Smooth hover animation */
+.nav-link {
+  transition: opacity 0.2s ease;
+}
+
+.nav-link::after {
+  transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
 .nav-link:hover {
-  animation: textFlicker 0.15s ease-in-out infinite alternate;
+  opacity: 0.6;
 }
 
-@keyframes flicker {
-  0% {
-    opacity: 1;
-    background-color: var(--underline-color);
-  }
-  100% {
-    opacity: 0.3;
-    background-color: var(--text-lighter);
-  }
-}
-
-@keyframes textFlicker {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.6;
-  }
+.nav-link:hover::after {
+  transform: scaleX(1.1);
 }
 
 /* Click animation - page exit */
@@ -316,12 +304,20 @@ nav ul {
   background-color: var(--underline-color);
 }
 
-.external-link:hover::after {
-  animation: flicker 0.15s ease-in-out infinite alternate;
+.external-link {
+  transition: opacity 0.2s ease;
+}
+
+.external-link::after {
+  transition: transform 0.3s ease;
 }
 
 .external-link:hover {
-  animation: textFlicker 0.15s ease-in-out infinite alternate;
+  opacity: 0.6;
+}
+
+.external-link:hover::after {
+  transform: scaleX(1.1);
 }
 
 /* Footer */
